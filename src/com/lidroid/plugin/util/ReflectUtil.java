@@ -37,15 +37,6 @@ public class ReflectUtil {
         return stacks[4];
     }
 
-    /**
-     * 获取反射的Method类型，
-     * 不支持 args包含基本类型数据与它对应的引用类型混杂的情况。
-     *
-     * @param clazz
-     * @param methodName
-     * @param args
-     * @return
-     */
     public static Method getMethod(Class clazz, String methodName, Object... args) {
         Method result = null;
         Class[] types = null;
@@ -57,27 +48,29 @@ public class ReflectUtil {
                     types[i] = int.class;
                 } else if (types[i].equals(Boolean.class)) {
                     types[i] = boolean.class;
-                } else if (types[i].equals(Long.class)) {
-                    types[i] = long.class;
                 } else if (types[i].equals(Float.class)) {
                     types[i] = float.class;
                 } else if (types[i].equals(Double.class)) {
                     types[i] = double.class;
                 } else if (types[i].equals(Byte.class)) {
                     types[i] = byte.class;
+                } else if (types[i].equals(Character.class)) {
+                    types[i] = char.class;
+                } else if (types[i].equals(Long.class)) {
+                    types[i] = long.class;
                 } else if (types[i].equals(Short.class)) {
                     types[i] = short.class;
                 }
             }
         }
         try {
-            result = clazz.getDeclaredMethod(methodName, types);
+            result = clazz.getMethod(methodName, types);
         } catch (NoSuchMethodException e) {
             for (int i = 0; i < args.length; i++) {
                 types[i] = args[i].getClass();
             }
             try {
-                result = clazz.getDeclaredMethod(methodName, types);
+                result = clazz.getMethod(methodName, types);
             } catch (NoSuchMethodException e1) {
             }
         }

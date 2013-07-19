@@ -48,11 +48,19 @@ public class DoubleKeyValueMap<K1, K2, V> {
         return k1_k2V_map.get(key1).get(key2);
     }
 
+    public ConcurrentHashMap<K2, V> get(K1 key1) {
+        return k1_k2V_map.get(key1);
+    }
+
     public boolean containsKey(K1 key1, K2 key2) {
         if (k1_k2V_map.containsKey(key1)) {
             return k1_k2V_map.get(key1).containsKey(key2);
         }
         return false;
+    }
+
+    public boolean containsKey(K1 key1) {
+        return k1_k2V_map.containsKey(key1);
     }
 
     public void clear() {

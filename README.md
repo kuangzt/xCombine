@@ -20,6 +20,7 @@
 
 ## 注意：
 * Module依赖xCombine, 但不要将xCombine编译进Module。
+  > * MainContainer依赖插件库，编译进源码；但ModuleTest是运行时依赖，不编译进去，eclipse怎么设置自己百度，我用idea开发依赖设置为provided。
 * 需要在AndroidManifest.xml为主界面Activity添加下面的intent-filter：
 
 ```xml

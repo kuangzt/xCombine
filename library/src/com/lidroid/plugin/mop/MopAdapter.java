@@ -29,7 +29,7 @@ public class MopAdapter {
 
     public void mopAction(Object... args) {
 
-        StackTraceElement callerTraceElement = ReflectUtil.getCallerMethodName();
+        StackTraceElement callerTraceElement = ReflectUtil.getCallerStackTraceElement();
 
         if (callerTraceElement != null) {
             MopImplCaller mopImplCaller = new MopImplCaller(callerTraceElement, args);
@@ -42,7 +42,7 @@ public class MopAdapter {
 
     public List<Object> mopFunc(Object... args) {
 
-        StackTraceElement callerTraceElement = ReflectUtil.getCallerMethodName();
+        StackTraceElement callerTraceElement = ReflectUtil.getCallerStackTraceElement();
 
         if (callerTraceElement != null) {
             MopImplCaller mopImplCaller = new MopImplCaller(callerTraceElement, args);
@@ -56,7 +56,7 @@ public class MopAdapter {
 
     public Object mopFuncSingle(Object... args) {
 
-        StackTraceElement callerTraceElement = ReflectUtil.getCallerMethodName();
+        StackTraceElement callerTraceElement = ReflectUtil.getCallerStackTraceElement();
 
         if (callerTraceElement != null) {
             MopImplCaller mopImplCaller = new MopImplCaller(callerTraceElement, args);

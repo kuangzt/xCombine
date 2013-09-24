@@ -25,11 +25,11 @@ import java.lang.reflect.Method;
  */
 public class ReflectUtil {
 
-    public static StackTraceElement getCurrentMethodName() {
+    public static StackTraceElement getCurrentStackTraceElement() {
         return Thread.currentThread().getStackTrace()[3];
     }
 
-    public static StackTraceElement getCallerMethodName() {
+    public static StackTraceElement getCallerStackTraceElement() {
         return Thread.currentThread().getStackTrace()[4];
     }
 

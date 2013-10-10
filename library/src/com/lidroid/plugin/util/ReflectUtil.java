@@ -57,6 +57,10 @@ public class ReflectUtil {
                     types[i] = long.class;
                 } else if (types[i].equals(Short.class)) {
                     types[i] = short.class;
+                } else if(types[i].equals(Object.class)){
+                	types[i] = Object.class;
+                }else{ //防止传入的参数是我们声明时的参数的子类
+                	types[i] = args[i].getClass().getSuperclass();
                 }
             }
         }
